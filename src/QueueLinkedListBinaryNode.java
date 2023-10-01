@@ -1,13 +1,13 @@
-public class QueueLinkedList {
+public class QueueLinkedListBinaryNode {
 
     Node head;
     Node last;
 
     private class Node {
-        Integer item;
+        BinaryNode item;
         Node next;
 
-        private Node(Integer item, Node nextNode) {
+        private Node(BinaryNode item, Node nextNode) {
             this.item = item;
             this.next = nextNode;
         }
@@ -20,55 +20,40 @@ public class QueueLinkedList {
             return this.next;
         }
 
-        public Integer getItem() {
+        public BinaryNode getItem() {
             return this.item;
         }
 
     }
 
-    public QueueLinkedList() {
+    public QueueLinkedListBinaryNode() {
         this.head = null;
         this.last = null;
     }
 
-    public void add(Integer item) {
+    public void add(BinaryNode item) {
         if (this.head == null) {
             this.head = new Node(item, null);
             this.last = this.head;
         } else {
-            // For implementation without last node pointer
-            /*
-             * Node currentPosition = this.head;
-             * while (currentPosition.next != null) {
-             * currentPosition = currentPosition.next;
-             * }
-             * currentPosition.setNextNode(new Node(item, null));
-             */
-            // For implementation with last node pointer
             this.last.setNextNode(new Node(item, null));
             this.last = this.last.getNext();
         }
-
     }
 
-    public Integer remove() {
-        Integer currentFirst = this.head.getItem();
-        if (this.head != null) {
-
-            this.head = this.head.next;
-        }
-        if (this.head == this.last) {
-            last = null;
-        }
+    public BinaryNode remove() {
+        BinaryNode currentFirst = this.head.getItem();
+        this.head = this.head.getNext();
         return currentFirst;
     }
 
     public void printQueue(Node printNode, int CurrentPosition) {
-        System.out.println("Current Position :" + CurrentPosition + "| Current Value:" + printNode.getItem());
+        System.out.println("Current Position :"
+                + CurrentPosition + "| Current Value:" + printNode.getItem().getValue() +
+                "| Current Key:" + printNode.getItem().getKey());
         if (printNode.getNext() != null) {
             printQueue(printNode.getNext(), CurrentPosition + 1);
         }
-
         if (printNode == head) {
 
             System.out.println();
