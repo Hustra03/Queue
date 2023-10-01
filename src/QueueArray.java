@@ -30,9 +30,6 @@ public class QueueArray {
         if (first == QueueArray.length - 1) {
             first = 0;
         }
-        if (first == last) {
-            expandQueueArray();
-        }
         return i;
     }
 
@@ -48,7 +45,7 @@ public class QueueArray {
 
         }
 
-        last = QueueArray.length;
+        last = QueueArray.length - 1;
         this.QueueArray = newQueueArray;
     }
 
@@ -56,17 +53,17 @@ public class QueueArray {
 
         int position = 1;
         for (int i = first; i < QueueArray.length; i++) {
-            if (QueueArray[i] == null) {
+            /*if (QueueArray[i] == null) {
                 break;
-            }
+            }*/
             System.out.println("Position : " + position + "| Value: " + QueueArray[i]);
             position += 1;
 
         }
         for (int i = last; i < first; i++) {
-            if (QueueArray[i] == null) {
+            /*if (QueueArray[i] == null) {
                 break;
-            }
+            }*/
             System.out.println("Position : " + position + "| Value: " + QueueArray[i]);
             position += 1;
 

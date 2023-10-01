@@ -33,20 +33,30 @@ public class App {
 
     public static void arraryQueueTest() {
 
-        QueueArray queue = new QueueArray(3);
+        QueueArray queue = new QueueArray(4);
 
         System.out.println("Queue length " + queue.QueueArray.length);
 
-        int length = queue.QueueArray.length * 2;
+        int length = queue.QueueArray.length;
 
-        for (int i = 0; i <= length; i++) {
+        for (int i = 0; i < length; i++) {
             queue.add(i);
         }
         queue.printQueue();
         System.out.println("Queue length " + queue.QueueArray.length);
+        System.out.println("First " + queue.first);
+        System.out.println("Last " + queue.last);
+
 
         queue.remove();
+        queue.remove();
+        queue.remove();
+        queue.remove();
+        queue.add(12);
         queue.printQueue();
+        System.out.println("First " + queue.first);
+        System.out.println("Last " + queue.last);
+
 
         System.out.println("ADAWd");
     }
