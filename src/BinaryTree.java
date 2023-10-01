@@ -9,8 +9,8 @@ public class BinaryTree implements Iterable<Integer> {
         return this.root;
     }
 
-    public TreeIterator iterator() {
-        return new TreeIterator(this.root);
+    public TreeIteratorQueue iterator() {
+        return new TreeIteratorQueue(this.root);
     }
 
     public void add(Integer key, Integer value) { // Non recursive add method

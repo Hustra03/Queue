@@ -14,13 +14,12 @@ public class QueueArray {
         if (this.last < QueueArray.length) {
             QueueArray[last] = item;
             last++;
-            if (last == QueueArray.length - 1) {
+            if (last >= QueueArray.length - 1) {
                 last = 0;
             }
             if (first == last) {
                 expandQueueArray();
             }
-        } else {
         }
     }
 
@@ -31,10 +30,13 @@ public class QueueArray {
         if (first == QueueArray.length - 1) {
             first = 0;
         }
+        if (first == last) {
+            expandQueueArray();
+        }
         return i;
     }
 
-    private void expandQueueArray() {
+    public void expandQueueArray() {
         Integer newQueueArray[] = new Integer[QueueArray.length * 2];
         for (int i = first; i < QueueArray.length; i++) {
             newQueueArray[i] = QueueArray[i];
@@ -45,6 +47,30 @@ public class QueueArray {
             newQueueArray[i] = QueueArray[i];
 
         }
-        last = 0;
+
+        last = QueueArray.length;
+        this.QueueArray = newQueueArray;
+    }
+
+    public void printQueue() {
+
+        int position = 1;
+        for (int i = first; i < QueueArray.length; i++) {
+            if (QueueArray[i] == null) {
+                break;
+            }
+            System.out.println("Position : " + position + "| Value: " + QueueArray[i]);
+            position += 1;
+
+        }
+        for (int i = last; i < first; i++) {
+            if (QueueArray[i] == null) {
+                break;
+            }
+            System.out.println("Position : " + position + "| Value: " + QueueArray[i]);
+            position += 1;
+
+        }
+        System.out.println("");
     }
 }

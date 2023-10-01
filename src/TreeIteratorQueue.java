@@ -1,12 +1,15 @@
 import java.util.Iterator;
 
-public class TreeIterator implements Iterator<Integer> {
+public class TreeIteratorQueue implements Iterator<Integer> {
     public BinaryNode next;
     private QueueLinkedListBinaryNode queue;
 
-    public TreeIterator(BinaryNode root) {
+    public TreeIteratorQueue(BinaryNode root) {
         this.next = root;
         this.queue = new QueueLinkedListBinaryNode();
+        while (next.getLeftBinaryNode() != null) {
+            next = next.getLeftBinaryNode();
+        }
         queue.add(next);
     }
 
@@ -34,7 +37,7 @@ public class TreeIterator implements Iterator<Integer> {
             Integer Integer = next.getValue();
             return Integer;
         } else {
-            return null;
+            return -1;
         }
     }
 
