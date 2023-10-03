@@ -7,9 +7,6 @@ public class TreeIteratorQueue implements Iterator<Integer> {
     public TreeIteratorQueue(BinaryNode root) {
         this.next = root;
         this.queue = new QueueLinkedListBinaryNode();
-        while (next.getLeftBinaryNode() != null) {
-            next = next.getLeftBinaryNode();
-        }
         queue.add(next);
     }
 

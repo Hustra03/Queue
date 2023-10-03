@@ -1,8 +1,8 @@
 public class App {
     public static void main(String[] args) throws Exception {
         // linkedListQueueTest();
-        // LinkedListQueueBinaryTreeTest();
-        arraryQueueTest();
+        LinkedListQueueBinaryTreeTest();
+        // arraryQueueTest();
     }
 
     public static void linkedListQueueTest() {
@@ -18,10 +18,10 @@ public class App {
 
     public static void LinkedListQueueBinaryTreeTest() {
         BinaryTree tree = new BinaryTree();
-        tree.add(0, 0);
+        tree.add(2, 22);
         tree.add(1, 1);
         tree.add(3, 3);
-        tree.add(-1, -1);
+        tree.add(-0, -0);
         tree.root.print();
 
         TreeIteratorQueue iterator = new TreeIteratorQueue(tree.getRoot());
@@ -47,7 +47,6 @@ public class App {
         System.out.println("First " + queue.first);
         System.out.println("Last " + queue.last);
 
-
         queue.remove();
         queue.remove();
         queue.remove();
@@ -56,7 +55,6 @@ public class App {
         queue.printQueue();
         System.out.println("First " + queue.first);
         System.out.println("Last " + queue.last);
-
 
         System.out.println("ADAWd");
     }
