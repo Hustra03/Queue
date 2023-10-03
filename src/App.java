@@ -1,8 +1,8 @@
 public class App {
     public static void main(String[] args) throws Exception {
         // linkedListQueueTest();
-        LinkedListQueueBinaryTreeTest();
-        // arraryQueueTest();
+        //LinkedListQueueBinaryTreeTest();
+         arraryQueueTest();
     }
 
     public static void linkedListQueueTest() {
@@ -30,14 +30,13 @@ public class App {
         }
     }
 
-    public static void arraryQueueTest() {
+    public static void arraryQueueTest() throws Exception {
 
         QueueArray queue = new QueueArray(4);
 
         System.out.println("Queue length " + queue.QueueArray.length);
 
         int length = queue.QueueArray.length;
-
         for (int i = 0; i < length; i++) {
             queue.add(i);
         }

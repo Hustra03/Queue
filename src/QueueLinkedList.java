@@ -54,7 +54,6 @@ public class QueueLinkedList {
     public Integer remove() {
         Integer currentFirst = this.head.getItem();
         if (this.head != null) {
-
             this.head = this.head.next;
         }
         if (this.head == this.last) {
