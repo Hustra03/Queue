@@ -40,9 +40,9 @@ public class App {
         for (int i = 0; i < length * 2; i++) {
             queue.add(i);
         }
-        for (int i = length * 2; i < length * 3; i++) {
-            queue.remove();
-            queue.add(i);
+        for (int i = 0; i < length * 2; i++) {
+            int element = queue.remove();
+            queue.add(element);
         }
         queue.printQueue();
         System.out.println("First " + queue.first);

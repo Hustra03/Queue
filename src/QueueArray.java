@@ -55,7 +55,7 @@ public class QueueArray {
 
     public void printQueue() {
 
-        int position = first;
+        int position = 1;
         for (int i = first; i < QueueArray.length; i++) {
             /*
              * if (QueueArray[i] == null) {
