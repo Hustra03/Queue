@@ -10,13 +10,11 @@ public class QueueArray {
         this.last = 0;
     }
 
-    public void add(Integer item) throws Exception {
+    public void add(Integer item) {
 
         QueueArray[last] = item;
-        last++;
-        if (last >= QueueArray.length) {
-            last = 0;
-        }
+        last = (last + 1) % QueueArray.length;
+
         if (first == last) {
             expandQueueArray();
         }
@@ -24,18 +22,17 @@ public class QueueArray {
     }
 
     public Integer remove() {
+        if (first == last) {
+            return null;
+        }
         Integer i = QueueArray[first];
 
-            QueueArray[first] = null;
-            first++;
-            if (first == QueueArray.length - 1) {
-                first = 0;
-            }
-
-            if (i==null) {
-                first=0;
-                last=0;
-            }
+        QueueArray[first] = null;
+        first = (first + 1) % QueueArray.length;
+        if (i == null) {
+            first = 0;
+            last = 0;
+        }
         return i;
     }
 
@@ -47,15 +44,12 @@ public class QueueArray {
             currentCopiedElement++;
         }
         first = 0;
-        if (last<first) {
-            for (int i = 0; i < first; i++) {
+        for (int i = 0; i < last; i++) {
             newQueueArray[currentCopiedElement] = QueueArray[i];
             currentCopiedElement++;
         }
-        }
-        
 
-        last = QueueArray.length - 1;
+        last = currentCopiedElement;
         this.QueueArray = newQueueArray;
     }
 
@@ -72,19 +66,19 @@ public class QueueArray {
             position += 1;
 
         }
-        if (last<first) {
+        if (last < first) {
             for (int i = 0; i < first; i++) {
-            /*
-             * if (QueueArray[i] == null) {
-             * break;
-             * }
-             */
-            System.out.println("Last Position : " + position + "| Value: " + QueueArray[i]);
-            position += 1;
+                /*
+                 * if (QueueArray[i] == null) {
+                 * break;
+                 * }
+                 */
+                System.out.println("Last Position : " + position + "| Value: " + QueueArray[i]);
+                position += 1;
 
+            }
         }
-        }
-        
+
         System.out.println("");
     }
 }

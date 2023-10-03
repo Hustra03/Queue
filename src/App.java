@@ -1,8 +1,8 @@
 public class App {
     public static void main(String[] args) throws Exception {
         // linkedListQueueTest();
-        //LinkedListQueueBinaryTreeTest();
-         arraryQueueTest();
+        // LinkedListQueueBinaryTreeTest();
+        arraryQueueTest();
     }
 
     public static void linkedListQueueTest() {
@@ -30,35 +30,38 @@ public class App {
         }
     }
 
-    public static void arraryQueueTest() throws Exception {
+    public static void arraryQueueTest() {
 
         QueueArray queue = new QueueArray(4);
 
         System.out.println("Queue length " + queue.QueueArray.length);
 
         int length = queue.QueueArray.length;
-        for (int i = 0; i < length*2+1; i++) {
+        for (int i = 0; i < length * 2; i++) {
             queue.add(i);
         }
-        for (int i = 0; i < length*2; i++) {
+        for (int i = length * 2; i < length * 3; i++) {
             queue.remove();
+            queue.add(i);
         }
         queue.printQueue();
         System.out.println("First " + queue.first);
         System.out.println("Last " + queue.last);
-        /*System.out.println("Queue length " + queue.QueueArray.length);
-        System.out.println("First " + queue.first);
-        System.out.println("Last " + queue.last);
-
-        queue.remove();
-        queue.remove();
-        queue.remove();
-        queue.remove();
-        queue.add(12);
-        queue.printQueue();
-        System.out.println("First " + queue.first);
-        System.out.println("Last " + queue.last);
-
-        System.out.println("ADAWd");*/
+        /*
+         * System.out.println("Queue length " + queue.QueueArray.length);
+         * System.out.println("First " + queue.first);
+         * System.out.println("Last " + queue.last);
+         * 
+         * queue.remove();
+         * queue.remove();
+         * queue.remove();
+         * queue.remove();
+         * queue.add(12);
+         * queue.printQueue();
+         * System.out.println("First " + queue.first);
+         * System.out.println("Last " + queue.last);
+         * 
+         * System.out.println("ADAWd");
+         */
     }
 }
