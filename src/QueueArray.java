@@ -11,18 +11,16 @@ public class QueueArray {
     }
 
     public void add(Integer item) throws Exception {
-        if (this.last < QueueArray.length) {
-            QueueArray[last] = item;
-            last++;
-            if (last >= QueueArray.length - 1) {
-                last = 0;
-            }
-            if (first == last) {
-                expandQueueArray();
-            }
-        } else {
-            throw new Exception();
+        
+        QueueArray[last] = item;
+        last++;
+        if (last >= QueueArray.length) {
+            last = 0;
         }
+        if (first == last) {
+            expandQueueArray();
+        }
+
     }
 
     public Integer remove() {
@@ -34,6 +32,9 @@ public class QueueArray {
             if (first == QueueArray.length - 1) {
                 first = 0;
             }
+        } else {
+            first = 0;
+            last = 0;
         }
 
         return i;
@@ -48,7 +49,8 @@ public class QueueArray {
         }
         first = 0;
         for (int i = last; i < first; i++) {
-            newQueueArray[currentCopiedElement+last] = QueueArray[i];
+            newQueueArray[currentCopiedElement] = QueueArray[i];
+            currentCopiedElement++;
         }
 
         last = QueueArray.length - 1;
