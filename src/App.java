@@ -41,8 +41,7 @@ public class App {
             queue.add(i);
         }
         for (int i = 0; i < length * 2; i++) {
-            int element = queue.remove();
-            queue.add(element);
+            queue.remove();
         }
         queue.printQueue();
         System.out.println("First " + queue.first);
