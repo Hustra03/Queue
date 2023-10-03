@@ -25,10 +25,9 @@ public class App {
         tree.root.print();
 
         TreeIteratorQueue iterator = new TreeIteratorQueue(tree.getRoot());
-        System.out.println(iterator.next.getValue());
-        iterator.next();
-        System.out.println(iterator.next.getValue());
-        iterator.next();
+        for (Integer integer : tree) {
+            System.out.println("Value: " + integer);
+        }
     }
 
     public static void arraryQueueTest() {
