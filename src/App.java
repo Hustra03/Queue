@@ -37,16 +37,15 @@ public class App {
         System.out.println("Queue length " + queue.QueueArray.length);
 
         int length = queue.QueueArray.length;
-        for (int i = 0; i < length*2; i++) {
+        for (int i = 0; i < length*2+1; i++) {
             queue.add(i);
         }
         for (int i = 0; i < length*2; i++) {
             queue.remove();
         }
-        for (int i = 0; i < length*2; i++) {
-            queue.add(i);
-        }
         queue.printQueue();
+        System.out.println("First " + queue.first);
+        System.out.println("Last " + queue.last);
         /*System.out.println("Queue length " + queue.QueueArray.length);
         System.out.println("First " + queue.first);
         System.out.println("Last " + queue.last);
