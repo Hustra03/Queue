@@ -5,14 +5,15 @@ public class TreeIteratorQueue implements Iterator<Integer> {
     private QueueLinkedListBinaryNode queue;
 
     public TreeIteratorQueue(BinaryNode root) {
-        this.next = root;
+
         this.queue = new QueueLinkedListBinaryNode();
-        queue.add(next);
+        queue.add(root);
+        next = root;
     }
 
     @Override
     public boolean hasNext() {
-        if (queue.head == null) {
+        if (queue.head == null && next == null) {
             return false;
         }
         return true;
@@ -21,9 +22,7 @@ public class TreeIteratorQueue implements Iterator<Integer> {
     @Override
     public Integer next() {
 
-        if (queue.head == null) {
-
-            next = queue.remove();
+        if (queue.head != null && next != null) {
 
             if (next.getLeftBinaryNode() != null) {
                 queue.add(next.getLeftBinaryNode());
@@ -31,9 +30,12 @@ public class TreeIteratorQueue implements Iterator<Integer> {
             if (next.getRightBinaryNode() != null) {
                 queue.add(next.getRightBinaryNode());
             }
+            next = queue.remove();
+
             Integer Integer = next.getValue();
             return Integer;
         } else {
+            next = null;
             return -1;
         }
     }
