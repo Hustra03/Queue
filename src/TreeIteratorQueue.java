@@ -32,8 +32,6 @@ public class TreeIteratorQueue implements Iterator<Integer> {
             if (next.getRightBinaryNode() != null) {
                 queue.add(next.getRightBinaryNode());
             }
-                
-            
 
             Integer Integer = next.getValue();
             return Integer;

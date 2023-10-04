@@ -37,13 +37,13 @@ public class QueueLinkedList {
             this.last = this.head;
         } else {
             // For implementation without last node pointer
-            /*
-             * Node currentPosition = this.head;
-             * while (currentPosition.next != null) {
-             * currentPosition = currentPosition.next;
-             * }
-             * currentPosition.setNextNode(new Node(item, null));
-             */
+            
+              Node currentPosition = this.head;
+              while (currentPosition.next != null) {
+              currentPosition = currentPosition.next;
+              }
+              currentPosition.setNextNode(new Node(item, null));
+             
             // For implementation with last node pointer
             this.last.setNextNode(new Node(item, null));
             this.last = this.last.getNext();
